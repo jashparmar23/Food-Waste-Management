@@ -825,10 +825,12 @@ def main():
                 food_id = st.number_input("Food ID", min_value=1, step=1)
                 receiver_id = st.number_input("Receiver ID", min_value=1, step=1)
                 status = st.selectbox("Status", ["Pending", "Completed", "Cancelled"])
-                timestamp = st.datetime_input("Claim Timestamp", datetime.now())
+                claim_date = st.date_input("Claim Date", datetime.today())
+                claim_time = st.time_input("Claim Time", datetime.now().time())
                 
                 if st.form_submit_button("Add Claim"):
                     try:
+                        timestamp = datetime.combine(claim_date, claim_time)
                         msg = insert_claim(claim_id, food_id, receiver_id, status, timestamp.strftime("%Y-%m-%d %H:%M:%S"))
                         st.success(msg)
                     except Exception as e:
@@ -970,3 +972,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
