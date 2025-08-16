@@ -202,7 +202,7 @@ New Quantity: 30 # After partial distribution
 
 ## 🚀 Deployment 
 
-### The App is live : 
+The App is live : https://food-waste-management-7batnfwkukulbhgsjveofe.streamlit.app/
 
 
 
